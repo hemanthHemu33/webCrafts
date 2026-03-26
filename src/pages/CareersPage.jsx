@@ -1,17 +1,20 @@
 import { jobs } from '../data/siteData';
+import PageHero from '../components/PageHero';
+import { heroMedia } from '../data/pageMedia';
 
 function CareersPage() {
   return (
     <>
-      <section className="section page-top split">
+      <PageHero
+        eyebrow="Careers"
+        title="Join us to build technology that creates meaningful impact"
+        description="We hire strategists, architects, engineers, analysts, designers, and operators who thrive in complex problem-solving."
+        image={heroMedia.careers}
+      />
+      <section className="section split">
         <div>
-          <p className="eyebrow">Careers</p>
-          <h1>Join us to build technology that creates meaningful impact</h1>
-          <p className="lead">
-            We hire strategists, architects, engineers, analysts, designers, and operators who thrive in complex problem-solving.
-          </p>
-          <div className="card">
-            <h3>Why join Northstar</h3>
+          <div className="card reveal-on-scroll">
+            <h3>Why join WebCrafts</h3>
             <ul>
               <li>Learning programs with AI, cloud, and leadership tracks.</li>
               <li>Hybrid work model with global collaboration opportunities.</li>
@@ -19,7 +22,7 @@ function CareersPage() {
             </ul>
           </div>
         </div>
-        <div className="jobs-panel">
+        <div className="jobs-panel reveal-on-scroll">
           {jobs.map((job) => (
             <a href="#" key={job} className="job-link">
               {job} <span>→</span>
@@ -29,7 +32,7 @@ function CareersPage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">Career areas</p>
           <h2>Explore opportunities across our business</h2>
         </div>

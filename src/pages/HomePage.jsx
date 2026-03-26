@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { awards, caseStudies, companyInfo, insightItems, serviceCards } from '../data/siteData';
-import dummyTech from '../assets/dummy-tech.svg';
-import dummyOffice from '../assets/dummy-office.svg';
+import { cardMedia } from '../data/pageMedia';
 
 const stats = [
   { value: '16K+', label: 'Transformation experts globally' },
@@ -48,7 +47,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="stats" aria-label="Performance highlights">
+      <section className="stats reveal-on-scroll" aria-label="Performance highlights">
         {stats.map((stat) => (
           <article key={stat.label}>
             <h3>{stat.value}</h3>
@@ -58,14 +57,14 @@ function HomePage() {
       </section>
 
       <section className="section page-anchor">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">Featured insights</p>
           <h2>Read our latest research and perspectives</h2>
         </div>
         <div className="grid-insights">
           {featuredTopics.map((item, index) => (
             <article key={item.title} className="card card-insight">
-              <img src={index % 2 === 0 ? dummyTech : dummyOffice} alt="Insight placeholder" className="card-image" />
+              <img src={cardMedia.insights[index % cardMedia.insights.length]} alt="Insight placeholder" className="card-image" />
               <p className="chip">{item.tag}</p>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
@@ -76,7 +75,7 @@ function HomePage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head split-head">
+        <div className="section-head split-head reveal-on-scroll">
           <div>
             <p className="eyebrow">What we do</p>
             <h2>Capabilities that accelerate reinvention</h2>
@@ -85,7 +84,7 @@ function HomePage() {
         </div>
         <div className="grid-services">
           {serviceCards.slice(0, 6).map((service) => (
-            <article key={service.title} className="card">
+            <article key={service.title} className="card reveal-on-scroll">
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </article>
@@ -94,7 +93,7 @@ function HomePage() {
       </section>
 
       <section className="section">
-        <div className="section-head split-head">
+        <div className="section-head split-head reveal-on-scroll">
           <div>
             <p className="eyebrow">Industries</p>
             <h2>Industry depth where it matters most</h2>
@@ -109,14 +108,14 @@ function HomePage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">360° value</p>
           <h2>Impact delivered every day for stakeholders across the ecosystem</h2>
         </div>
         <div className="stories">
           {caseStudies.slice(0, 3).map((item, index) => (
             <article key={item.client} className="card card-story">
-              <img src={index % 2 === 0 ? dummyOffice : dummyTech} alt="Case study placeholder" className="card-image" />
+              <img src={cardMedia.caseStudies[index % cardMedia.caseStudies.length]} alt="Case study placeholder" className="card-image" />
               <p className="chip">{item.client}</p>
               <h3>{item.summary}</h3>
               <p className="result">{item.impact}</p>
@@ -128,13 +127,13 @@ function HomePage() {
 
       <section className="section">
         <div className="split">
-          <article className="card promo-card">
+          <article className="card promo-card reveal-on-scroll">
             <p className="eyebrow">Careers</p>
             <h3>Bring your skills to the future of business and technology</h3>
             <p>Join a global team where curiosity, learning, and impact drive every project.</p>
             <Link to="/careers" className="text-link">Explore careers →</Link>
           </article>
-          <article className="card promo-card">
+          <article className="card promo-card reveal-on-scroll">
             <p className="eyebrow">Sustainability</p>
             <h3>Put sustainability at the center of reinvention</h3>
             <p>Integrate ESG data, decarbonization pathways, and resilient operations for long-term value.</p>
@@ -144,7 +143,7 @@ function HomePage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head split-head">
+        <div className="section-head split-head reveal-on-scroll">
           <div>
             <p className="eyebrow">Global recognition and awards</p>
             <h2>Recognized for innovation, delivery, and workplace excellence</h2>
@@ -153,7 +152,7 @@ function HomePage() {
         </div>
         <div className="grid-insights">
           {awards.map((award) => (
-            <article key={award.title} className="card">
+            <article key={award.title} className="card reveal-on-scroll">
               <h3>{award.title}</h3>
               <p>{award.detail}</p>
             </article>
@@ -162,7 +161,7 @@ function HomePage() {
       </section>
 
       <section className="section">
-        <div className="section-head split-head">
+        <div className="section-head split-head reveal-on-scroll">
           <div>
             <p className="eyebrow">From our newsroom</p>
             <h2>What’s new at {companyInfo.name}</h2>
@@ -171,7 +170,7 @@ function HomePage() {
         </div>
         <div className="grid-insights">
           {insightItems.slice(0, 3).map((insight) => (
-            <article key={insight.title} className="card">
+            <article key={insight.title} className="card reveal-on-scroll">
               <p className="chip">{insight.type}</p>
               <h3>{insight.title}</h3>
               <p>{insight.description}</p>

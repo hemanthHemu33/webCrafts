@@ -1,16 +1,19 @@
 import { companyInfo } from '../data/siteData';
+import PageHero from '../components/PageHero';
+import { heroMedia } from '../data/pageMedia';
 
 function ContactPage() {
   return (
     <>
-      <section className="section page-top split">
+      <PageHero
+        eyebrow="Contact"
+        title="Let’s discuss your goals"
+        description="Share your priorities and we’ll connect you with the right team within one business day."
+        image={heroMedia.contact}
+      />
+      <section className="section split">
         <div>
-          <div className="section-head">
-            <p className="eyebrow">Contact</p>
-            <h1>Let’s discuss your goals</h1>
-            <p className="lead">Share your priorities and we’ll connect you with the right team within one business day.</p>
-          </div>
-          <div className="card">
+          <div className="card reveal-on-scroll">
             <h3>General enquiries</h3>
             <p>{companyInfo.email}</p>
             <h3>Phone</h3>
@@ -19,7 +22,7 @@ function ContactPage() {
             <p>{companyInfo.address}</p>
           </div>
         </div>
-        <form className="card contact-form">
+        <form className="card contact-form reveal-on-scroll">
           <label>
             Full name
             <input type="text" placeholder="Jane Doe" />

@@ -1,17 +1,25 @@
 import { industryCards } from '../data/siteData';
+import PageHero from '../components/PageHero';
+import { cardMedia, heroMedia } from '../data/pageMedia';
 
 function IndustriesPage() {
   return (
     <>
-      <section className="section page-top">
-        <div className="section-head">
-          <p className="eyebrow">Industries</p>
-          <h1>Unmatched industry expertise to solve sector-specific disruption</h1>
-          <p className="lead">Our teams bring domain, data, and technology capabilities tailored to each industry context.</p>
+      <PageHero
+        eyebrow="Industries"
+        title="Unmatched industry expertise to solve sector-specific disruption"
+        description="Our teams bring domain, data, and technology capabilities tailored to each industry context."
+        image={heroMedia.industries}
+      />
+      <section className="section">
+        <div className="section-head reveal-on-scroll">
+          <p className="eyebrow">Industry coverage</p>
+          <h2>Depth where growth, resilience, and regulation intersect</h2>
         </div>
         <div className="grid-services">
-          {industryCards.map((industry) => (
-            <article key={industry} className="card">
+          {industryCards.map((industry, index) => (
+            <article key={industry} className="card reveal-on-scroll">
+              <img src={cardMedia.industries[index % cardMedia.industries.length]} alt="Industry placeholder" className="card-image" />
               <h3>{industry}</h3>
               <p>Reinvent customer outcomes, operations, and growth models with industry-specific solutions.</p>
             </article>
@@ -20,7 +28,7 @@ function IndustriesPage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">Spotlight sectors</p>
           <h2>Where we are seeing rapid reinvention momentum</h2>
         </div>
