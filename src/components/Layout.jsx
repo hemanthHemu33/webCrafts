@@ -1,10 +1,26 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 import { companyInfo, navItems, quickLinks } from '../data/siteData';
 import companyLogo from '../assets/company-logo-placeholder.svg';
 
 function Layout({ children }) {
+  useEffect(() => {
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    elements.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, [children]);
+
   return (
-    <div>
+    <div className="app-shell">
       <div className="utility-bar">
         <span>India (English)</span>
         <div className="utility-links">
@@ -14,7 +30,7 @@ function Layout({ children }) {
         </div>
       </div>
       <header className="top-nav">
-        <Link to="/" className="brand">
+        <Link to="/" className="brand" aria-label={`${companyInfo.name} home`}>
           <img src={companyLogo} alt={`${companyInfo.name} logo`} className="brand-logo" />
         </Link>
         <nav>
@@ -24,9 +40,14 @@ function Layout({ children }) {
             </NavLink>
           ))}
         </nav>
-        <Link to="/contact" className="btn-secondary nav-cta">
-          Contact us
-        </Link>
+        <div className="nav-right">
+          <Link to="/search" className="nav-search" aria-label="Search">
+            Search
+          </Link>
+          <Link to="/contact" className="btn-secondary nav-cta">
+            Contact us
+          </Link>
+        </div>
       </header>
       <main>{children}</main>
       <footer>

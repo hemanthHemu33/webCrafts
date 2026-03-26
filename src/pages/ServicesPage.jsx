@@ -1,19 +1,27 @@
 import { serviceCards } from '../data/siteData';
+import PageHero from '../components/PageHero';
+import { cardMedia, heroMedia } from '../data/pageMedia';
 
 const partnerLogos = ['AWS', 'Microsoft', 'Google Cloud', 'SAP', 'Oracle', 'Salesforce', 'ServiceNow', 'Adobe'];
 
 function ServicesPage() {
   return (
     <>
-      <section className="section page-top">
-        <div className="section-head">
-          <p className="eyebrow">What we do</p>
-          <h1>Capabilities that connect strategy, technology, and operations</h1>
-          <p className="lead">From reinvention strategy to build and run, we combine deep expertise with ecosystem partnerships.</p>
+      <PageHero
+        eyebrow="What we do"
+        title="Capabilities that connect strategy, technology, and operations"
+        description="From reinvention strategy to build and run, we combine deep expertise with ecosystem partnerships."
+        image={heroMedia.services}
+      />
+      <section className="section">
+        <div className="section-head reveal-on-scroll">
+          <p className="eyebrow">Capabilities</p>
+          <h2>End-to-end execution across strategy, build, and managed operations</h2>
         </div>
         <div className="grid-services">
-          {serviceCards.map((service) => (
-            <article key={service.title} className="card">
+          {serviceCards.map((service, index) => (
+            <article key={service.title} className="card reveal-on-scroll">
+              <img src={cardMedia.services[index % cardMedia.services.length]} alt="Service placeholder" className="card-image" />
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <ul>
@@ -27,7 +35,7 @@ function ServicesPage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">Ecosystem partners</p>
           <h2>Co-innovating with the world’s leading technology platforms</h2>
         </div>
@@ -39,7 +47,7 @@ function ServicesPage() {
       </section>
 
       <section className="section">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">How we deliver</p>
           <h2>Outcome-driven model from vision to value</h2>
         </div>

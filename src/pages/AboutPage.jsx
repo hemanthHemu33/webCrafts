@@ -1,26 +1,31 @@
 import { companyInfo } from '../data/siteData';
+import PageHero from '../components/PageHero';
+import { heroMedia } from '../data/pageMedia';
 
 function AboutPage() {
   return (
     <>
-      <section className="section page-top">
-        <div className="section-head">
-          <p className="eyebrow">Who we are</p>
-          <h1>We combine strategy, technology, and industry depth to unlock reinvention</h1>
-          <p className="lead">
-            {companyInfo.name} operates as one integrated team across consulting, engineering, and operations.
-          </p>
+      <PageHero
+        eyebrow="Who we are"
+        title="We combine strategy, technology, and industry depth to unlock reinvention"
+        description={`${companyInfo.name} operates as one integrated team across consulting, engineering, and operations.`}
+        image={heroMedia.about}
+      />
+      <section className="section">
+        <div className="section-head reveal-on-scroll">
+          <p className="eyebrow">Our identity</p>
+          <h2>Built to deliver transformation with responsible execution</h2>
         </div>
         <div className="grid-services">
-          <article className="card">
+          <article className="card reveal-on-scroll">
             <h3>Our mission</h3>
             <p>Help organizations reinvent with confidence in a rapidly shifting digital economy.</p>
           </article>
-          <article className="card">
+          <article className="card reveal-on-scroll">
             <h3>Our values</h3>
             <p>Client value, responsible innovation, inclusion, continuous learning, and bold execution.</p>
           </article>
-          <article className="card">
+          <article className="card reveal-on-scroll">
             <h3>Global footprint</h3>
             <p>Delivery and strategy teams across the Americas, Europe, APAC, and the Middle East.</p>
           </article>
@@ -28,7 +33,7 @@ function AboutPage() {
       </section>
 
       <section className="section dark">
-        <div className="section-head">
+        <div className="section-head reveal-on-scroll">
           <p className="eyebrow">Leadership commitments</p>
           <h2>Our leaders focus on technology, talent, and trust</h2>
         </div>
