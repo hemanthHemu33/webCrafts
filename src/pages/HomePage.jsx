@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { awards, caseStudies, insightItems, serviceCards } from '../data/siteData';
+import { awards, caseStudies, companyInfo, insightItems, serviceCards } from '../data/siteData';
+import dummyTech from '../assets/dummy-tech.svg';
+import dummyOffice from '../assets/dummy-office.svg';
 
 const stats = [
   { value: '16K+', label: 'Transformation experts globally' },
@@ -37,7 +39,7 @@ function HomePage() {
           <p className="eyebrow">Technology + Human Ingenuity</p>
           <h1>Let there be measurable change.</h1>
           <p>
-            We help organizations reinvent at scale with strategy, AI, cloud, data, and operations—while creating durable value for customers, people, and communities.
+            {companyInfo.name} helps organizations reinvent at scale with strategy, AI, cloud, data, and operations—while creating durable value for customers, people, and communities.
           </p>
           <div className="hero-actions">
             <Link to="/contact" className="btn-primary">Get started</Link>
@@ -61,8 +63,9 @@ function HomePage() {
           <h2>Read our latest research and perspectives</h2>
         </div>
         <div className="grid-insights">
-          {featuredTopics.map((item) => (
+          {featuredTopics.map((item, index) => (
             <article key={item.title} className="card card-insight">
+              <img src={index % 2 === 0 ? dummyTech : dummyOffice} alt="Insight placeholder" className="card-image" />
               <p className="chip">{item.tag}</p>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
@@ -111,8 +114,9 @@ function HomePage() {
           <h2>Impact delivered every day for stakeholders across the ecosystem</h2>
         </div>
         <div className="stories">
-          {caseStudies.slice(0, 3).map((item) => (
+          {caseStudies.slice(0, 3).map((item, index) => (
             <article key={item.client} className="card card-story">
+              <img src={index % 2 === 0 ? dummyOffice : dummyTech} alt="Case study placeholder" className="card-image" />
               <p className="chip">{item.client}</p>
               <h3>{item.summary}</h3>
               <p className="result">{item.impact}</p>
@@ -161,7 +165,7 @@ function HomePage() {
         <div className="section-head split-head">
           <div>
             <p className="eyebrow">From our newsroom</p>
-            <h2>What’s new at Northstar Digital</h2>
+            <h2>What’s new at {companyInfo.name}</h2>
           </div>
           <Link to="/newsroom" className="text-link">Go to newsroom →</Link>
         </div>
