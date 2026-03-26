@@ -1,3 +1,5 @@
+import { companyInfo } from '../data/siteData';
+
 function AboutPage() {
   return (
     <>
@@ -6,7 +8,7 @@ function AboutPage() {
           <p className="eyebrow">Who we are</p>
           <h1>We combine strategy, technology, and industry depth to unlock reinvention</h1>
           <p className="lead">
-            Northstar Digital operates as one integrated team across consulting, engineering, and operations.
+            {companyInfo.name} operates as one integrated team across consulting, engineering, and operations.
           </p>
         </div>
         <div className="grid-services">

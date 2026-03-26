@@ -1,3 +1,10 @@
+export const companyInfo = {
+  name: 'WebCrafts',
+  address: 'Kakathamba Nagar, near DIET College, Anakapalli, Andhra Pradesh, India, 531001',
+  phone: '+91 85228 71775',
+  email: 'contact@webcrafts.in',
+};
+
 export const navItems = [
   { label: 'Home', path: '/' },
   { label: 'What we do', path: '/services' },
@@ -64,22 +71,8 @@ export const serviceCards = [
 ];
 
 export const industryCards = [
-  'Aerospace and Defense',
-  'Automotive',
-  'Banking',
-  'Capital Markets',
-  'Communications and Media',
-  'Consumer Goods and Services',
-  'Energy',
-  'Health',
-  'Industrial',
-  'Insurance',
-  'Life Sciences',
-  'Public Service',
-  'Retail',
-  'Software and Platforms',
-  'Travel',
-  'Utilities',
+  'Aerospace and Defense', 'Automotive', 'Banking', 'Capital Markets', 'Communications and Media', 'Consumer Goods and Services',
+  'Energy', 'Health', 'Industrial', 'Insurance', 'Life Sciences', 'Public Service', 'Retail', 'Software and Platforms', 'Travel', 'Utilities',
 ];
 
 export const caseStudies = [
@@ -179,8 +172,8 @@ export const locations = [
 ];
 
 export const newsroom = [
-  'Northstar expands AI engineering talent with strategic acquisition of FacultyOne.',
-  'Northstar and UNICEF launch ethical AI framework for youth digital literacy.',
-  'Northstar recognized by Gartner for public cloud transformation leadership.',
+  'WebCrafts expands AI engineering talent with strategic acquisition of FacultyOne.',
+  'WebCrafts and UNICEF launch ethical AI framework for youth digital literacy.',
+  'WebCrafts recognized by Gartner for public cloud transformation leadership.',
   'New report reveals enterprise trust gap in scaling agentic AI.',
 ];

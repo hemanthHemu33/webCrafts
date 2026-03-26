@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
-import { navItems, quickLinks } from '../data/siteData';
+import { companyInfo, navItems, quickLinks } from '../data/siteData';
+import companyLogo from '../assets/company-logo-placeholder.svg';
 
 function Layout({ children }) {
   return (
@@ -14,7 +15,7 @@ function Layout({ children }) {
       </div>
       <header className="top-nav">
         <Link to="/" className="brand">
-          NORTHSTAR<span className="purple">DIGITAL</span>
+          <img src={companyLogo} alt={`${companyInfo.name} logo`} className="brand-logo" />
         </Link>
         <nav>
           {navItems.map((item) => (
@@ -31,8 +32,10 @@ function Layout({ children }) {
       <footer>
         <div className="footer-grid">
           <div>
-            <h4>Northstar Digital</h4>
+            <h4>{companyInfo.name}</h4>
             <p>Global transformation partner for strategy, technology, and operations.</p>
+            <p className="footer-contact">{companyInfo.address}</p>
+            <p className="footer-contact">Phone: {companyInfo.phone}</p>
           </div>
           <div>
             <h5>What we do</h5>
@@ -55,7 +58,7 @@ function Layout({ children }) {
             <Link to="/search">Search</Link>
           </div>
         </div>
-        <p className="copyright">© {new Date().getFullYear()} Northstar Digital. All rights reserved.</p>
+        <p className="copyright">© {new Date().getFullYear()} {companyInfo.name}. All rights reserved.</p>
       </footer>
     </div>
   );

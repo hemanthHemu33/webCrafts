@@ -1,3 +1,5 @@
+import { companyInfo } from '../data/siteData';
+
 function ContactPage() {
   return (
     <>
@@ -10,11 +12,11 @@ function ContactPage() {
           </div>
           <div className="card">
             <h3>General enquiries</h3>
-            <p>contact@northstar-digital.com</p>
-            <h3>Careers enquiries</h3>
-            <p>careers@northstar-digital.com</p>
-            <h3>Media enquiries</h3>
-            <p>media@northstar-digital.com</p>
+            <p>{companyInfo.email}</p>
+            <h3>Phone</h3>
+            <p>{companyInfo.phone}</p>
+            <h3>Office address</h3>
+            <p>{companyInfo.address}</p>
           </div>
         </div>
         <form className="card contact-form">
